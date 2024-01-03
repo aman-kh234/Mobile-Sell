@@ -1,0 +1,59 @@
+CREATE TABLE Employees (
+  id INT PRIMARY KEY NOT NULL,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  joining_date DATE,
+  salary INT(15),
+  department_name VARCHAR(255)
+);
+
+INSERT INTO Employees (id,first_name, last_name, joining_date, salary, department_name)
+VALUES
+  (1,'John', 'Doe', '2022-01-01', 500000, 'Sales'),
+  (2,'Jane', 'Smith', '2022-02-15', 600000, 'Marketing'),
+  (3,'Michael', 'Johnson', '2022-03-01', 550000, 'Sales'),
+  (4,'Emily', 'Williams', '2022-04-10', 700000, 'Finance'),
+  (5,'David', 'Brown', '2022-05-20', 450000, 'Marketing'),
+  (6,'Sarah', 'Davis', '2022-06-05', 650000, 'Finance'),
+  (7,'Daniel', 'Miller', '2022-07-15', 600000, 'Sales'),
+  (8,'Olivia', 'Taylor', '2022-08-01', 550000, 'Marketing'),
+  (9,'James', 'Wilson', '2022-09-10', 750000, 'Finance'),
+  (10,'Sophia', 'Anderson', '2022-10-25', 500000, 'Sales');
+
+
+CREATE TABLE bonus (
+  bonus_id INT PRIMARY KEY,
+  bonus_amount DECIMAL(10, 2),
+  bonus_date DATE,
+  FOREIGN KEY(bonus_id)
+  REFERENCES Employees(id)
+  ON DELETE CASCADE
+);
+
+INSERT INTO bonus (bonus_id, bonus_amount, bonus_date)
+VALUES
+  (1, 10000, '2022-01-01'),
+  (2, 15000, '2022-02-15'),
+  (3, 20000, '2022-03-01'),
+  (4, 12000, '2022-04-10'),
+  (5, 18000, '2022-05-20');
+
+CREATE TABLE title (
+  title_id INT,
+  employee_title VARCHAR(255),
+  affected_from_date DATE,
+  FOREIGN KEY (title_id)
+  REFERENCES Employees(id)
+  ON DELETE CASCADE
+);
+
+INSERT INTO title (title_id, employee_title, affected_from_date)
+VALUES
+  (1, 'Finance', '2022-01-01'),
+  (2, 'Sales', '2022-02-15'),
+  (4, 'Sales', '2022-03-01'),
+  (4, 'Marketing', '2022-04-10'),
+  (5, 'Finance', '2022-05-20');
+
+My name is aman Kharbanda . Currently in 4th year prsuing b.e in IT from uiet, panjab university chandigarh. Have did two summer intenships . last summer in artificial intelligence and this summer in data science at design innovation center , panjab university . Also have proficiency in c++, python . Did 5+ projects in mern stack including backend also and have a good idea of machine learning and deep learning algos also. Write an application to directorate of goverenance reforms regarding internship oppurtunity.
+
